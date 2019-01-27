@@ -1,6 +1,5 @@
 package com.Intive.Patronage.tests.pages;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class ContactUsPage {
 
     public WebDriver driver;
     private static String AUTOMATION_URL = "http://automationpractice.com/index.php/";
@@ -25,7 +24,7 @@ public class HomePage {
     @FindBy (how = How.XPATH, using = "//ol/li[1]")
     public WebElement alertPopUpText;
 
-    public HomePage(final WebDriver driver) {
+    public ContactUsPage(final WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
