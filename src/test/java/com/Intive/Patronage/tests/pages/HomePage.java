@@ -1,7 +1,7 @@
 package com.Intive.Patronage.tests.pages;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,42 +13,49 @@ public class HomePage {
     public WebDriver driver;
     private static String AUTOMATION_URL = "http://automationpractice.com/index.php/";
 
-    @FindBy (how = How.ID, using = "contact-link")
-    public WebElement contactUsLink;
+    @FindBy (how = How.ID, using = "search_query_top")
+    public WebElement searchField;
 
-    @FindBy (how = How.ID, using = "submitMessage")
-    public WebElement submitSendButton;
+    @FindBy (how = How.CLASS_NAME, using = "button-search")
+    public WebElement submitSearchButton;
 
-    @FindBy (how = How.CLASS_NAME, using = "alert-danger")
+    @FindBy (how = How.CLASS_NAME, using = "alert-warning")
     public WebElement alertPopUp;
 
-    @FindBy (how = How.XPATH, using = "//ol/li[1]")
-    public WebElement alertPopUpText;
+    @FindBy (how = How.CLASS_NAME, using = "product-image-container")
+    public WebElement productContainer;
+
 
     public HomePage(final WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void openAutomationPage() {
+    public void openHomePage() {
         driver.get(AUTOMATION_URL);
     }
 
-    public void clickOnContactUs() {
-        contactUsLink.click();
+    public void searchInBox(String searchPhrase) {
+        searchField.sendKeys(searchPhrase);
     }
 
-    public void clickOnSendButton() {
-        submitSendButton.click();
+    public void clickOnSearchButton() {
+        submitSearchButton.click();
     }
 
     public void displayAlertPopUP() {
-        alertPopUp.isDisplayed();
+        String catchAlertText = alertPopUp.getText();
+        String checkAlertText = "Please enter a search keyword";
+        Assert.assertEquals(checkAlertText, catchAlertText);
     }
 
     public void catchAlertPopUpText() {
-        String catchAlertText = alertPopUpText.getText();
-        String checkAlertText = "Invalid email address.";
+        String catchAlertText = alertPopUp.getText();
+        String checkAlertText = "No results were found for your search \"a\"";
         Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchConteiner() {
+        productContainer.isDisplayed();
     }
 }

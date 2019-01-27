@@ -1,6 +1,7 @@
 package com.Intive.Patronage.tests.steps;
 
 import com.Intive.Patronage.tests.DriverFactory;
+import com.Intive.Patronage.tests.pages.ContactUsPage;
 import com.Intive.Patronage.tests.pages.GooglePage;
 import com.Intive.Patronage.tests.pages.HomePage;
 import cucumber.api.PendingException;
@@ -11,26 +12,26 @@ import cucumber.api.java.en.When;
 
 public class ContactUsSteps extends DriverFactory {
 
-    HomePage homePage = new HomePage(driver);
+    ContactUsPage contactUsPage = new ContactUsPage(driver);
 
-    @Given("^I open testAutomation Webapage$")
-    public void iOpenTestAutomationWebapage() {
-        homePage.openAutomationPage();
+    @Given("^I open testAutomation Webpage$")
+    public void iOpenTestAutomationWebpage() {
+        contactUsPage.openAutomationPage();
     }
 
     @When("^I click on Contact Us Navigation Menu$")
     public void iClickOnContactUsNavigationMenu() {
-        homePage.clickOnContactUs();
+        contactUsPage.clickOnContactUs();
     }
 
     @And("^I Click on Send button$")
     public void iClickOnSendButton() {
-        homePage.clickOnSendButton();
+        contactUsPage.clickOnSendButton();
     }
 
     @Then("^I see that error pop-up is visible$")
     public void iSeeThatErrorPopUpIsVisible() {
         //homePage.displayAlertPopUP();
-        homePage.catchAlertPopUpText();
+        contactUsPage.catchAlertPopUpText();
     }
 }

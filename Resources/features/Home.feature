@@ -3,14 +3,16 @@ Feature: As a user I want to be able to search something in searchbox on automat
   Scenario: Search in searchbox item that is in shop
     Given User is on automationpractice page
     When I search with phrase "top"
-    Then I can see results
+    And I click on search button
+    Then I can see results on page
 
   Scenario: Check error pop-up when user search with empty box
     Given User is on automationpractice page
     When I click on search button
-    Then I see that error pop-up is visible
+    Then I see that error pop-up about entering keyword is visible
 
   Scenario: Check error pop-up when user search with item that is not in shop
     Given User is on automationpractice page
     When I search with phrase "a"
+    And I click on search button
     Then I see that an error pop-up about no results is visible
