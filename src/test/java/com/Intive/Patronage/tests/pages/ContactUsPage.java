@@ -1,11 +1,13 @@
 package com.Intive.Patronage.tests.pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class ContactUsPage {
 
@@ -18,11 +20,18 @@ public class ContactUsPage {
     @FindBy (how = How.ID, using = "submitMessage")
     public WebElement submitSendButton;
 
-    @FindBy (how = How.CLASS_NAME, using = "alert-danger")
-    public WebElement alertPopUp;
-
     @FindBy (how = How.XPATH, using = "//ol/li[1]")
     public WebElement alertPopUpText;
+
+    @FindBy (how = How.ID, using = "email")
+    public WebElement emailBox;
+
+    @FindBy (how = How.ID, using = "message")
+    public WebElement messageBox;
+
+    @FindBy (how = How.CLASS_NAME, using = "alert-success")
+    public WebElement messageSent;
+
 
     public ContactUsPage(final WebDriver driver) {
         this.driver = driver;
@@ -41,13 +50,40 @@ public class ContactUsPage {
         submitSendButton.click();
     }
 
-    public void displayAlertPopUP() {
-        alertPopUp.isDisplayed();
-    }
-
     public void catchAlertPopUpText() {
         String catchAlertText = alertPopUpText.getText();
         String checkAlertText = "Invalid email address.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void fillEmailAddress(String emailAddres) {
+        emailBox.sendKeys(emailAddres);
+    }
+
+    public void catchAlertPopUpTextMessage() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "The message cannot be blank.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void fillMessageBox(String message) {
+        messageBox.sendKeys(message);
+    }
+
+    public void catchAlertPopUpSubjectMissing() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "Please select a subject from the list provided.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void chooseSubjectHeading() {
+        Select subjectHeading = new Select(driver.findElement(By.id("id_contact")));
+        subjectHeading.selectByIndex(2);
+    }
+
+    public void catchPopUpMessageSent() {
+        String catchAlertText = messageSent.getText();
+        String checkAlertText = "Your message has been successfully sent to our team.";
         Assert.assertEquals(checkAlertText, catchAlertText);
     }
 }
