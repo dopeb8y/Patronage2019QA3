@@ -1,2 +1,2 @@
 # Patronage2019QA3
-Patronage_2019
+Task about writing automation tests for website.
