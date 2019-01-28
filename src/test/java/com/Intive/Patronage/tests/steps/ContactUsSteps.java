@@ -2,8 +2,6 @@ package com.Intive.Patronage.tests.steps;
 
 import com.Intive.Patronage.tests.DriverFactory;
 import com.Intive.Patronage.tests.pages.ContactUsPage;
-import com.Intive.Patronage.tests.pages.GooglePage;
-import com.Intive.Patronage.tests.pages.HomePage;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
