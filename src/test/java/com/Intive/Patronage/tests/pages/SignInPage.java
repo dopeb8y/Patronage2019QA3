@@ -1,7 +1,6 @@
 package com.Intive.Patronage.tests.pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,8 +41,8 @@ public class SignInPage {
         signInLink.click();
     }
 
-    public void fillEmail(String emailAddres) {
-        emailBox.sendKeys(emailAddres);
+    public void fillEmail(String emailAddress) {
+        emailBox.sendKeys(emailAddress);
     }
 
     public void fillPasswd(String passwd) {

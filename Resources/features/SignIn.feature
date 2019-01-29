@@ -31,7 +31,7 @@ Feature: As a user I want to be able to sign in on automationpractice site
   Scenario: Check error pop-up when user uses not registered email address and password
     Given I open automationpractice Webpage
     When I click on Sign in Navigation Menu
-    And I fill up Email address with validate phrase "qwey@op.pl"
+    And I fill up Email address with validate phrase "qweytest@op.pl"
     And I fill up Password with phrase "123test"
     And I click on Sign in button
     Then I see that error pop-up about failed authentication is visible

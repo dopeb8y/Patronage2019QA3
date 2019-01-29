@@ -2,7 +2,6 @@ package com.Intive.Patronage.tests.steps;
 
 import com.Intive.Patronage.tests.DriverFactory;
 import com.Intive.Patronage.tests.pages.SignInPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -46,7 +45,6 @@ public class SignInSteps extends DriverFactory {
     public void iSeeThatErrorPopUpAboutRequiredEmailAddressIsVisible() {
         signIn.catchAlertPopUpText();
     }
-
 
     @And("^I fill up Email address with phrase \"([^\"]*)\"$")
     public void iFillUpEmailAddressWithPhrase(String phrase) {
