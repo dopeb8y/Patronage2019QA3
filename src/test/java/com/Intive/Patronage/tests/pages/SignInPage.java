@@ -25,6 +25,9 @@ public class SignInPage {
     @FindBy (how = How.ID, using = "SubmitLogin")
     public WebElement submitLoginButton;
 
+    @FindBy (how = How.XPATH, using = "//ol/li[1]")
+    public WebElement alertPopUpText;
+
 
     public SignInPage(final WebDriver driver) {
         this.driver = driver;
@@ -55,5 +58,29 @@ public class SignInPage {
         String currPage = driver.getCurrentUrl();
         String myAccPage = "http://automationpractice.com/index.php?controller=my-account";
         Assert.assertEquals(currPage, myAccPage);
+    }
+
+    public void catchAlertPopUpText() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "An email address required.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpInvalidEmail() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "Invalid email address.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpPasswordRequired() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "Password is required.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpAuthenticationFail() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "Authentication failed.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
     }
 }

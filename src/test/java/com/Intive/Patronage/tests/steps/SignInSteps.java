@@ -41,4 +41,35 @@ public class SignInSteps extends DriverFactory {
     public void iSeeMyAccountPage() {
         signIn.iAmOnMyAccountPage();
     }
+
+    @Then("^I see that error pop-up about required email address is visible$")
+    public void iSeeThatErrorPopUpAboutRequiredEmailAddressIsVisible() {
+        signIn.catchAlertPopUpText();
+    }
+
+
+    @And("^I fill up Email address with phrase \"([^\"]*)\"$")
+    public void iFillUpEmailAddressWithPhrase(String phrase) {
+        signIn.fillEmail(phrase);
+    }
+
+    @Then("^I see that error pop-up about invalid email address is visible$")
+    public void iSeeThatErrorPopUpAboutInvalidEmailAddressIsVisible() {
+        signIn.catchAlertPopUpInvalidEmail();
+    }
+
+    @Then("^I see that error pop-up about required password is visible$")
+    public void iSeeThatErrorPopUpAboutRequiredPasswordIsVisible() {
+        signIn.catchAlertPopUpPasswordRequired();
+    }
+
+    @And("^I fill up Password with phrase \"([^\"]*)\"$")
+    public void iFillUpPasswordWithPhrase(String phrase) {
+        signIn.fillPasswd(phrase);
+    }
+
+    @Then("^I see that error pop-up about failed authentication is visible$")
+    public void iSeeThatErrorPopUpAboutFailedAuthenticationIsVisible() {
+        signIn.catchAlertPopUpAuthenticationFail();
+    }
 }
