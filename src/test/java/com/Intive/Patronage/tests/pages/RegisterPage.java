@@ -8,9 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
 import java.util.Random;
-
 
 public class RegisterPage {
 
@@ -58,7 +56,6 @@ public class RegisterPage {
 
     @FindBy (how = How.CLASS_NAME, using = "alert-danger")
     public WebElement alertPopUpMany;
-
 
 
     public RegisterPage(final WebDriver driver) {
@@ -146,7 +143,7 @@ public class RegisterPage {
 
     public void chooseState() {
         Select state = new Select(driver.findElement(By.id("id_state")));
-        state.selectByIndex(2);
+        state.selectByIndex(3);
     }
 
     public void catchAlertPopUpWithAllErrors() {
@@ -160,6 +157,54 @@ public class RegisterPage {
                 "city is required.\n" +
                 "The Zip/Postal code you've entered is invalid. It must follow this format: 00000\n" +
                 "This country requires you to choose a State.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpTextFirstNameReq() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "firstname is required.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpTextLastNameReq() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "lastname is required.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpTextPasswordReq() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "passwd is required.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpTextAddressReq() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "address1 is required.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpTextCityReq() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "city is required.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpTextStateReq() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "This country requires you to choose a State.";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpTextZipCodeReq() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "The Zip/Postal code you've entered is invalid. It must follow this format: 00000";
+        Assert.assertEquals(checkAlertText, catchAlertText);
+    }
+
+    public void catchAlertPopUpTextPhoneNumberReq() {
+        String catchAlertText = alertPopUpText.getText();
+        String checkAlertText = "You must register at least one phone number.";
         Assert.assertEquals(checkAlertText, catchAlertText);
     }
 }

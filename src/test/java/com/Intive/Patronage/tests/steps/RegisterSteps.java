@@ -2,7 +2,6 @@ package com.Intive.Patronage.tests.steps;
 
 import com.Intive.Patronage.tests.DriverFactory;
 import com.Intive.Patronage.tests.pages.RegisterPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -107,8 +106,48 @@ public class RegisterSteps extends DriverFactory {
         register.iAmOnMyAccPage();
     }
 
-    @Then("^I see many error pop-ups$")
+    @Then("^I see and check many error pop-ups$")
     public void iSeeManyErrorPopUps() {
         register.catchAlertPopUpWithAllErrors();
+    }
+
+    @Then("^I see that error pop-up about first name required is visible$")
+    public void iSeeThatErrorPopUpAboutFirstNameRequiredIsVisible() {
+        register.catchAlertPopUpTextFirstNameReq();
+    }
+
+    @Then("^I see that error pop-up about last name required is visible$")
+    public void iSeeThatErrorPopUpAboutLastNameRequiredIsVisible() {
+        register.catchAlertPopUpTextLastNameReq();
+    }
+
+    @Then("^I see that error pop-up about password required$")
+    public void iSeeThatErrorPopUpAboutPasswordRequired() {
+        register.catchAlertPopUpTextPasswordReq();
+    }
+
+    @Then("^I see that error pop-up about address required is visible$")
+    public void iSeeThatErrorPopUpAboutAddressRequiredIsVisible() {
+        register.catchAlertPopUpTextAddressReq();
+    }
+
+    @Then("^I see that error pop-up about city required is visible$")
+    public void iSeeThatErrorPopUpAboutCityRequiredIsVisible() {
+        register.catchAlertPopUpTextCityReq();
+    }
+
+    @Then("^I see that error pop-up about state required is visible$")
+    public void iSeeThatErrorPopUpAboutStateRequiredIsVisible() {
+        register.catchAlertPopUpTextStateReq();
+    }
+
+    @Then("^I see that error pop-up about zip code invalid is visible$")
+    public void iSeeThatErrorPopUpAboutZipCodeInvalidIsVisible() {
+        register.catchAlertPopUpTextZipCodeReq();
+    }
+
+    @Then("^I see that error pop-up about phone number required is visible$")
+    public void iSeeThatErrorPopUpAboutPhoneNumberRequiredIsVisible() {
+        register.catchAlertPopUpTextPhoneNumberReq();
     }
 }
