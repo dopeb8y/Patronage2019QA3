@@ -2,6 +2,7 @@ package com.Intive.Patronage.tests.steps;
 
 import com.Intive.Patronage.tests.DriverFactory;
 import com.Intive.Patronage.tests.pages.SearchBoxPage;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -37,6 +38,16 @@ public class SearchBoxSteps extends DriverFactory {
 
     @Then("^I can see results on page$")
     public void iCanSeeResultsOnPage() {
+        searchBox.catchProductConteiner();
+    }
+
+    @And("^I click on enter button$")
+    public void iClickOnEnterButton() {
+        searchBox.searchInBoxWithEnter();
+    }
+
+    @Then("^I see that search engine works using enter button$")
+    public void iSeeThatSearchEngineWorksUsingEnterButton() {
         searchBox.catchProductConteiner();
     }
 }

@@ -1,6 +1,7 @@
 package com.Intive.Patronage.tests.pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,5 +57,9 @@ public class SearchBoxPage {
 
     public void catchProductConteiner() {
         productContainer.isDisplayed();
+    }
+
+    public void searchInBoxWithEnter() {
+        searchField.sendKeys(Keys.ENTER);
     }
 }
